@@ -9,5 +9,7 @@ namespace ModelLinks.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
+        public virtual List<Comment> Comments { get; set; }
+        public virtual List<Post> Posts { get; set; }
     }
 }

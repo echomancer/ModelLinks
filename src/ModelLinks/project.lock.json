@@ -1989,6 +1989,15 @@
           "lib/net45/_._": {}
         }
       },
+      "System.Linq.Queryable/4.0.1-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
         "compile": {
@@ -6942,6 +6951,15 @@
           "lib/net45/_._": {}
         }
       },
+      "System.Linq.Queryable/4.0.1-beta-23516": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
       "System.Numerics.Vectors/4.1.1-beta-23516": {
         "type": "package",
         "compile": {
@@ -9049,6 +9067,15 @@
         }
       },
       "System.Linq/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Linq.Queryable/4.0.1-beta-23516": {
         "type": "package",
         "compile": {
           "ref/net45/_._": {}
@@ -21734,7 +21761,8 @@
       "Microsoft.Extensions.Logging >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
+      "System.Linq.Queryable >= 4.0.1-beta-23516"
     ],
     "DNX,Version=v4.5.1": [],
     "DNXCore,Version=v5.0": []
