@@ -28,9 +28,9 @@
     var currentPost = Model.PostId;
 }
 <div>
-    <form method="post" action="../../Comments/Add" enctype="multipart/form-data">
+    <form method="post" action="/Comments/Add" enctype="multipart/form-data">
         <div class="form-horizontal">
-            <h4>Comment</h4>
+            <h4>Add Comment</h4>
             <hr />
             <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="PostId" />
@@ -56,28 +56,40 @@
         </div>
     </form>
 </div>
-@{ 
-    if (ViewBag.Comments != null)
-    {
-        <table>
-            <thead>
-                <tr>
-                    <th>Subject</th>
-                    <th>Body</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach(var current in ViewBag.Comments)
-                {
-                    <td>@current.Subject</td>
-                    <td>@current.Body</td>
+<div>
+    <h4>Comments</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        @{
+            if (ViewBag.Comments != null)
+            {
+                <table class="table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Body</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var current in ViewBag.Comments)
+                        {
+                            <tr>
+                                <td>@current.Subject</td>
+                                <td>@current.Body</td>
+                                <td><a asp-action="Edit" asp-controller="Comments" asp-route-id="@current.CommentId">Edit</a></td>
+                                <td>@Html.ActionLink("Delete", "Delete", "Comments", new { id = current.CommentId }, null)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
-                }
-            </tbody>
-        </table>
-
-    }
-}
+            }
+        }
+    </dl>
+</div>
+<hr/>
 <p>
     <a asp-action="Edit" asp-route-id="@Model.PostId">Edit</a> |
     <a asp-action="Index">Back to List</a>

@@ -91,10 +91,10 @@ namespace ModelLinks.Controllers
                     await _context.SaveChangesAsync();
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Posts", new { id = post.PostId });
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "User", comment.ApplicationUserId);
-            return View(post);
+            return View(comment);
         }
 
         // GET: Comments/Edit/5
@@ -123,7 +123,8 @@ namespace ModelLinks.Controllers
             {
                 _context.Update(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                Post post = await _context.Post.SingleAsync(s => s.PostId == comment.PostId);
+                return RedirectToAction("Details", "Posts", new { id = post.PostId });
             }
             ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "User", comment.ApplicationUserId);
             return View(comment);
@@ -153,9 +154,10 @@ namespace ModelLinks.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             Comment comment = await _context.Comment.SingleAsync(m => m.CommentId == id);
+            Post post = await _context.Post.SingleAsync(s => s.PostId == comment.PostId);
             _context.Comment.Remove(comment);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Posts", new { id = post.PostId });
         }
     }
 }
